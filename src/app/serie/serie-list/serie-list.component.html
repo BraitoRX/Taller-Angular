@@ -1,20 +1,39 @@
-<table class="table">
-  <thead class="table-light">
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Channel</th>
+          <th>Seasons</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr (click)="onSelected(serie)" *ngFor="let serie of Series">
+
+          <td>{{ serie.id }}</td>
+          <td>{{ serie.name }}</td>
+          <td>{{ serie.channel }}</td>
+          <td>{{ serie.seasons }}</td>
+        </tr>
+      </tbody>
+    </table>
     <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Channel</th>
-      <th>Seasons</th>
+      Seasons average
+      {{
+        promedio
+      }}
     </tr>
-  </thead >
-  <tbody>
-    <tr *ngFor="let serie of Series">
-      <td>{{serie.id}}</td>
-      <td>{{serie.name}}</td>
-      <td>{{serie.channel}}</td>
-      <td>{{serie.seasons}}</td>
-    </tr>
-   
-  </tbody>
-</table>
-<tr> Seasons average {{promedio}}</tr>
+
+  </div>
+  
+    <div class="col-sm-4">
+      <div *ngIf="activate">
+        <app-serie-detail [selectedSerie]="selectedSerie" ></app-serie-detail>
+      </div>
+    </div>
+ 
+
+</div>
+

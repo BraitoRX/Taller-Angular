@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { serie } from '../serie';
 import { SerieService } from '../serie.service';
 
@@ -7,15 +7,22 @@ import { SerieService } from '../serie.service';
   templateUrl: './serie-list.component.html',
 })
 export class SerieListComponent implements OnInit {
-  
+
   Series: serie[] = [];
   promedio: number=0;
+
+  selectedSerie!: serie;
+  activate: Boolean=false;
+  onSelected(serie: serie): void {
+    this.activate = true;
+    this.selectedSerie = serie;
+  }
   constructor(private serieService: SerieService) { }
-  
-  
+
+
   getSeries(): void {
     this.serieService.getSeries().subscribe(series => this.funcion(series));
-      
+
   }
   funcion(series: serie[]) {
     this.Series = series;

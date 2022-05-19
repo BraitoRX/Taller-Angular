@@ -9,7 +9,7 @@ import { SerieModule } from './serie/serie.module';
 @NgModule({
   declarations: [
     AppComponent
-  ],
+   ],
   imports: [
     BrowserModule,
     HttpClientModule,

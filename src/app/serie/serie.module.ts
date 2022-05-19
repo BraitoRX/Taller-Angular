@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { SerieListComponent } from './serie-list/serie-list.component';
 import { SerieService } from './serie.service';
 import { FormsModule } from '@angular/forms';
+import { SerieDetailComponent } from './serie-detail/serie-detail.component';
 
 @NgModule({
   imports: [
     CommonModule,FormsModule
   ],
-  declarations: [SerieListComponent],
+  declarations: [SerieListComponent,SerieDetailComponent],
   exports: [SerieListComponent],
   providers: [SerieService]
 })
